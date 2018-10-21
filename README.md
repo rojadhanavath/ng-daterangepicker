@@ -21,9 +21,9 @@ This is advanced angular library built in angular 5 with range selection and tim
 
 ```
 ### Usage in detail:
-> you can use 'dateformat' to format date and display - follows momentjs date dateformat
-> you can use 'dateEmit' to retrieve the date and format it for your purpose or communicating to parent components
->optional credit attribute to give me some credits :)
+> You can use 'dateformat' to format date and display - follows momentjs date dateformat
+> You can use 'dateEmit' to retrieve the date and format it for your purpose or communicating to parent components
+> Optional credit attribute to give me some credits :)
 
 
 

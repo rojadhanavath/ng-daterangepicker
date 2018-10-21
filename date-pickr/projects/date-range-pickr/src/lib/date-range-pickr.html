@@ -1,35 +1,43 @@
-<button aria-haspopup="true" type="button" class='btn btn-md btn-large btn-block popup' aria-label="Open Range Calendar" tabindex="0" (click)="calendarClicked()">
+<div class="wrapit">
+  <div class="group">
+    <input type="text" value="{{resultDate}}" disabled required>
+    <span class="highlight"></span>
+    <span class="bar"></span>
+    <label>DATE </label>
+  </div>
+  <button aria-haspopup="true" type="button" class='btn btn-md btn-large btn-block popup' aria-label="Open Range Calendar" tabindex="0" (click)="calendarClicked()">
 
-  <span class="button-wrapper">
+    <span class="button-wrapper">
 
-    <svg style="width:24px;height:24px" viewBox="0 0 24 24">
-      <path fill="#000000" d="M7,12H9V14H7V12M21,6V20A2,2 0 0,1 19,22H5C3.89,22 3,21.1 3,20V6A2,2 0 0,1 5,4H6V2H8V4H16V2H18V4H19A2,2 0 0,1 21,6M5,8H19V6H5V8M19,20V10H5V20H19M15,14H17V12H15V14M11,14H13V12H11V14Z" />
-    </svg>
-  </span>
+      <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+        <path fill="#000000" d="M7,12H9V14H7V12M21,6V20A2,2 0 0,1 19,22H5C3.89,22 3,21.1 3,20V6A2,2 0 0,1 5,4H6V2H8V4H16V2H18V4H19A2,2 0 0,1 21,6M5,8H19V6H5V8M19,20V10H5V20H19M15,14H17V12H15V14M11,14H13V12H11V14Z" />
+      </svg>
+    </span>
 
-  <div *ngIf="isRangeVisible">
-    <span class="popuptext" [ngClass]="{'show': isRangeVisible}" id="myPopup">
-      <div id="calendar">
-        <div class="header">
-          <div class="left" (click)="prevMonth($event)"></div>
-          <h1>{{title}} </h1>
-          <div class="right" (click)="nextMonth($event)"></div>
-        </div>
-        <div class="month in prev">
-          <div class="week">
-            <div class="day" *ngFor="let day of dayNames; let k = index"> {{day}}</div>
+    <div *ngIf="isRangeVisible">
+      <span class="popuptext" [ngClass]="{'show': isRangeVisible}" id="myPopup">
+        <div id="calendar">
+          <div class="header">
+            <div class="left" (click)="prevMonth($event)"></div>
+            <h1>{{title}} </h1>
+            <div class="right" (click)="nextMonth($event)"></div>
           </div>
-          <div class="week" *ngFor="let week of weeks; let i = index">
-            <div class="day" *ngFor="let day of dayNames; let j = index">
-              <div class="day-number">{{data[i][j]}}</div>
-              <div class="day-events"></div>
+          <div class="month in prev">
+            <div class="week">
+              <div class="day" *ngFor="let day of dayNames; let k = index"> {{day}}</div>
+            </div>
+            <div class="week" *ngFor="let week of weeks; let i = index">
+              <div class="day" *ngFor="let day of dayNames; let j = index" [style.visibility]="(data[i][j]==0)?'hidden':'visible'" id="{{i+'_id_'+j}}" [ngClass]="{'dateSelect': id === i+'_id_'+j}" (click)="onOpen($event,i+'id'+j)">
+                <div class="day-number">{{data[i][j]}}</div>
+                <div class="day-events"></div>
+              </div>
             </div>
           </div>
+
         </div>
 
-      </div>
+      </span>
+    </div>
 
-    </span>
-  </div>
-
-</button>
+  </button>
+</div>

@@ -17,26 +17,32 @@ import { default as _rollupMoment } from 'moment';
 
 export class DateRangePickrComponent implements OnInit {
 
+  @Input() credit: number;
+
+  resultDate: any;
   currentDate: any;
   title: any;
   dayNames = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
-  weeks = ['first', 'second', 'third', 'fourth', 'fifth'];
+  weeks = ['first', 'second', 'third', 'fourth', 'fifth', 'sixth'];
   data: any;
   characters: any[];
   columns: any[];
   isRangeVisible: boolean;
   id: any;
-  constructor() { }
+  constructor() {
+
+  }
 
   ngOnInit() {
     this.isRangeVisible = false;
     this.currentDate = moment();
     this.title = this.currentDate.format('MMMM YYYY');
-
     this.initCalendar();
     this.backFill(this.currentDate);
-
-
+    console.log(this.credit);
+    if (this.credit == 1) {
+      console.log('%c Made with ❤ ! Hire me!!', 'background: #eedfdf; color: #da6955');
+    }
   }
 
   initCalendar() {
@@ -79,26 +85,23 @@ export class DateRangePickrComponent implements OnInit {
 
     for (var i = endOfMonth; i > 0; i--) {
       let z = endDate;
-
-
+      // console.log(this.week_of_month(z) + '_' + z.day() + '_' + z.format('DD'));
       this.data[this.week_of_month(z)][z.day()] = z.format('DD');
-      z = clonef.subtract('days', 1);
+      z = clonef.subtract(1, 'days');
     }
   }
 
   onOpen(e, id: any) {
     e.stopPropagation();
     this.id = id;
-    console.log(id);
+    this.resultDate = "marked";
     let elementId: string = (e.target as Element).id;
+    console.log(elementId);
   }
 
-  week_of_month(date) {
-
-    let prefixes = [0, 1, 2, 3, 4, 5];
-
-    return prefixes[0 | moment(date).date() / 7]
-
+  week_of_month(m) {
+    let val = m.week() - moment(m).startOf('month').week();
+    return (val >= 0) ? val : (((moment(m).day()) > 0) ? this.week_of_month(moment(m).subtract(1, 'days')) : this.week_of_month(moment(m).subtract(1, 'days')) + 1);
   }
 
 }

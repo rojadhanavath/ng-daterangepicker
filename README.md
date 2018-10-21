@@ -16,10 +16,16 @@ This is advanced angular library built in angular 5 with range selection and tim
 ## Usage
 
 ```angular
-<rj-date-range-pickr></rj-date-range-pickr>
+<rj-date-range-pickr dateformat="DD-MMM-YYYY" (dateEmit)="onOpen($event)" credit=0></rj-date-range-pickr>
 
 
 ```
+### Usage in detail:
+> you can use 'dateformat' to format date and display - follows momentjs date dateformat
+> you can use 'dateEmit' to retrieve the date and format it for your purpose or communicating to parent components
+>optional credit attribute to give me some credits :)
+
+
 
 ## module file settings
 ```

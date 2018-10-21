@@ -2,7 +2,16 @@
   "name": "date-range-pickr",
   "version": "0.0.1",
   "peerDependencies": {
-    "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
-    "@angular/core": "^6.0.0-rc.0 || ^6.0.0"
+    "@angular/common": "^6.0.0-rc.0",
+    "@angular/core": "^6.0.0-rc.0",
+    "lodash": "^4.17.11",
+    "moment": "^2.22.2",
+    "rxjs": "^6.0.0",
+    "zone.js": "^0.8.26",
+    "@types/moment": "^2.13.0"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@angular/cli": "^6.2.5"
   }
 }

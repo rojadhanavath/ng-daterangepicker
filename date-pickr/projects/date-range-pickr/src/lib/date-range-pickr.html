@@ -1,6 +1,6 @@
 <div class="wrapit">
   <div class="group">
-    <input type="text" value="{{resultDate}}" disabled required>
+    <input type="text" value="{{resultDate}}" required>
     <span class="highlight"></span>
     <span class="bar"></span>
     <label>DATE </label>
@@ -27,8 +27,8 @@
               <div class="day" *ngFor="let day of dayNames; let k = index"> {{day}}</div>
             </div>
             <div class="week" *ngFor="let week of weeks; let i = index">
-              <div class="day" *ngFor="let day of dayNames; let j = index" [style.visibility]="(data[i][j]==0)?'hidden':'visible'" id="{{i+'_id_'+j}}" [ngClass]="{'dateSelect': id === i+'_id_'+j}" (click)="onOpen($event,i+'id'+j)">
-                <div class="day-number">{{data[i][j]}}</div>
+              <div class="day" *ngFor="let day of dayNames; let j = index" [style.visibility]="(data[i][j].day==0)?'hidden':'visible'" id="{{i+'_id_'+j}}" [ngClass]="{'dateSelect': id === i+'_id_'+j}" (click)="onOpen($event,i,j)">
+                <div class="day-number">{{data[i][j].day}}</div>
                 <div class="day-events"></div>
               </div>
             </div>

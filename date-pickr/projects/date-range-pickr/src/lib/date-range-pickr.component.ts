@@ -18,7 +18,8 @@ import { default as _rollupMoment } from 'moment';
 export class DateRangePickrComponent implements OnInit {
 
   @Input() credit: number;
-
+  @Input() dateformat: string;
+  @Output() dateEmit: EventEmitter<any> = new EventEmitter();
   resultDate: any;
   currentDate: any;
   title: any;
@@ -39,7 +40,9 @@ export class DateRangePickrComponent implements OnInit {
     this.title = this.currentDate.format('MMMM YYYY');
     this.initCalendar();
     this.backFill(this.currentDate);
-    console.log(this.credit);
+    if (this.dateformat == undefined) {
+      this.dateformat = "YYYY MM DD";
+    }
     if (this.credit == 1) {
       console.log('%c Made with ❤ ! Hire me!!', 'background: #eedfdf; color: #da6955');
     }
@@ -86,17 +89,19 @@ export class DateRangePickrComponent implements OnInit {
     for (var i = endOfMonth; i > 0; i--) {
       let z = endDate;
       // console.log(this.week_of_month(z) + '_' + z.day() + '_' + z.format('DD'));
-      this.data[this.week_of_month(z)][z.day()] = z.format('DD');
+      this.data[this.week_of_month(z)][z.day()] = { 'day': z.format('DD'), '_date': moment(z) };
       z = clonef.subtract(1, 'days');
     }
+
   }
 
-  onOpen(e, id: any) {
+  onOpen(e, a, b) {
     e.stopPropagation();
-    this.id = id;
-    this.resultDate = "marked";
+    this.id = a + '_id_' + b;
+
+    this.resultDate = moment(this.data[a][b]._date).format((this.dateformat));
     let elementId: string = (e.target as Element).id;
-    console.log(elementId);
+    this.dateEmit.emit(this.resultDate);
   }
 
   week_of_month(m) {

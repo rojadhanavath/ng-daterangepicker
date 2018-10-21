@@ -11,15 +11,16 @@
     <span class="popuptext" [ngClass]="{'show': isRangeVisible}" id="myPopup">
       <div id="calendar">
         <div class="header">
-          <div class="left" (click)="prevMonth()"></div>
-          <h1>{{title}}</h1>
-          <div class="right" (click)="nextMonth()"></div>
+          <div class="left" (click)="prevMonth($event)"></div>
+          <h1>{{title}} </h1>
+          <div class="right" (click)="nextMonth($event)"></div>
         </div>
         <div class="month in prev">
+          <div class="week">
+            <div class="day" *ngFor="let day of dayNames; let k = index"> {{day}}</div>
+          </div>
           <div class="week" *ngFor="let week of weeks; let i = index">
             <div class="day" *ngFor="let day of dayNames; let j = index">
-
-              <div class="day-name">{{day}}</div>
               <div class="day-number">{{data[i][j]}}</div>
               <div class="day-events"></div>
             </div>

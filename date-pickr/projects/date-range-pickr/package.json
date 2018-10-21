@@ -1,6 +1,6 @@
 {
   "name": "date-range-pickr",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "peerDependencies": {
     "@angular/common": "^6.0.0-rc.0",
     "@angular/core": "^6.0.0-rc.0",
@@ -13,5 +13,12 @@
   "dependencies": {},
   "devDependencies": {
     "@angular/cli": "^6.2.5"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rojadhanavath/ng-daterangepicker"
+  },
+  "keywords": [],
+  "author": "Roja Dhanavath",
+  "license": "ISC"
 }

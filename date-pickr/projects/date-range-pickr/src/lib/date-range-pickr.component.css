@@ -62,22 +62,6 @@ a, a:visited{
     margin-left: -80px;
 }
 
-/* Popup arrow */
-.popup .popuptext::after {
-    content: "";
-    position: absolute;
-    top: -10%;
-    left: 11%;
-    margin-left: -5px;
-    width: 0;
-  height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-
-  border-bottom: 5px solid #555;
-
-
-}
 
 /* Toggle this class when clicking on the popup container (hide and show the popup) */
 .popup .show {
@@ -101,9 +85,9 @@ a, a:visited{
   -webkit-transform: translate3d(0, 0, 0);
   -moz-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
-  width: 565px;
+  width: 414px;
   margin: 0 auto;
-  height: 613px;
+  height: 460px;
   overflow: hidden;
 }
 
@@ -191,7 +175,7 @@ a, a:visited{
 
 .day {
   display: inline-block;
-  width: 60px;
+  width: 38px;
   padding: 10px;
   text-align: center;
   vertical-align: top;

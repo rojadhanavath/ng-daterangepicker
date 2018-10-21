@@ -3,9 +3,9 @@
   "dest": "../../dist/date-range-pickr",
   "lib": {
     "entryFile": "src/public_api.ts",
-"externals": {
-"moment": "moment"
-}
+    "externals": {
+      "moment": "moment"
+    }
 
   }
 }
